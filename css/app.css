@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+
+/* Set default font*/
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+.centered {
+    text-align: center;
+}
+
+.made-with {
+    color: gray;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Overwrite hollow buttons to be slightly more bold */
+.button.hollow {
+    border: 2px solid #1779ba;
+}
+
+/* Set button to blue (and text to white) when a menu label is active */
+.is-active {
+    background: #1779ba;
+    color: white;
+}
+
+.is-active:focus, .is-active:hover {
+    color: whitesmoke;
+}
+
+figcaption {
+    color: dimgray;
+    font-size: 14px;
+    font-style: italic;
+}

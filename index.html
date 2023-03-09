@@ -1,8 +1,52 @@
-<html>
+<html lang="en">
 <head>
     <title>Philippe-Alexandre Mathieu | Portfolio</title>
+    <link rel="stylesheet" href="css/foundation.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+          integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
 <body>
-<h1>Portfolio</h1>
+<h1 style="text-align: center">Philippe-Alexandre Mathieu | Portfolio</h1>
+
+<div class="grid-container">
+    <div class="grid-y">
+        <div class="cell grid-x grid-margin-x">
+            <div class="cell large-6 large-offset-3 callout" style="text-align: center">
+                <h5>What is in my portfolio?</h5>
+                <p>This list contains recent projects I completed in my free time or for school. Every
+                    project has its own page, offering extra details.</p>
+            </div>
+        </div>
+
+        <!-- Main projects -->
+        <div class="cell grid-y">
+            <div class="cell grid-x grid-margin-x">
+                <div class="cell large-offset-2 medium-offset-1 large-4">
+                    <img src="static/captures/sudoku/sudoku_solve_anim.gif" alt="Solving animation">
+                </div>
+                <div class="cell large-4">
+                    <h4><a href="sudoku.html">Sudoku Solver</a></h4>
+                    <ul class="menu">
+                        <p class="made-with">Made with: </p>
+                        <li><img src="static/logos/java-logo.svg" alt="Java Logo" title="Java" width="40px"></li>
+                    </ul>
+                    <p>This simple application automatically solves a Sudoku puzzle using a bruteforce algorithm.
+                        The project was programmed using Java and uses Swing as a GUI library</p>
+                    <a href="sudoku.html" class="button">Learn More</a>
+                    <a href="https://github.com/ppoum/SudokuSolver" class="button hollow"><i
+                            class="fa-brands fa-github"></i> Code</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="js/vendor/jquery.js"></script>
+<script src="js/vendor/what-input.js"></script>
+<script src="js/vendor/foundation.min.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>

@@ -1,0 +1,135 @@
+<html lang="en">
+<head>
+    <title>Sudoku Solver | Philippe-Alexandre Mathieu</title>
+    <link rel="stylesheet" href="css/foundation.min.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<h1 style="text-align: center">Sudoku Solver</h1>
+
+<div class="grid-container">
+    <div class="grid-x">
+        <div class="sections cell grid-y grid-padding-y large-offset-2 large-7" id="sections">
+            <section class="cell" id="intro" data-magellan-target="intro">
+                <h2>Introduction</h2>
+
+                <p>My goal with this project was to get more familiar with GUI libraries. I chose Java as a language
+                    because it had been a while since I had used it for a personal project, and I had never created a
+                    graphical application in Java. I wanted to create an application that didn't look "vanilla",
+                    something that I could potentially see being shipped out by a real company. In the end, I'm not
+                    quite sure the physical aspect of the GUI looks quite as good as I wanted it to; the application
+                    looks somewhat empty, and I'm still using the default button style (although it would be fairly easy
+                    to update the project to have more recent looking buttons). Nonetheless, I am still very happy with
+                    how the application turned out, as I think the sudoku grid looks quite good, and the pencil markings
+                    offer additional information without overloading the user with information.</p>
+                <p>Finally, the project uses gradle to standardize the building and packaging of the project, but this
+                    solution is somewhat overkill, as there are no dependencies (Swing is already bundled with recent
+                    java version).</p>
+            </section>
+
+            <section class="cell" id="init" data-magellan-target="init">
+                <h2>Initialization</h2>
+
+                <p>This stage represents the application launching. During development, I often found myself re-entering
+                    the same grid over and over. To streamline my development process, I implemented a feature that I
+                    think would be beneficial to users as well. When opening the application, the user has the option of
+                    providing a base64-encoded version of a sudoku grid, which automatically gets loaded into the grid.
+                    If no string is provided, the grid starts out empty.</p>
+            </section>
+            <section class="cell" id="setup" data-magellan-target="setup">
+                <h2>Setup</h2>
+
+                <p>The setup stage is used to set up the sudoku grid. If a grid was loaded using a b64 string, the
+                    grid will be preloaded with the specified values. Users can then add or remove cells in the grid. To
+                    help, pencil markings are automatically updated while entering new cell values. Additionally, the
+                    application will block the user's inputs if they are trying to add an illegal value in a cell.</p>
+                <div class="grid-x grid-margin-x">
+                    <figure class="cell auto">
+                        <img src="static/captures/sudoku/sudoku_setup_anim.gif"
+                             alt="Animation showing pencil markings updating when setting cell values">
+                        <figcaption>Pencil markings automatically update while entering new cell values.</figcaption>
+                    </figure>
+                    <figure class="cell auto">
+                        <img src="static/captures/sudoku/sudoku_setup_illegal.png"
+                             alt="Animation showing pencil markings updating when setting cell values">
+                        <figcaption>Trying to enter an invalid value in a cell makes that cell red and blocks the input.
+                        </figcaption>
+                    </figure>
+                </div>
+                <br>
+
+                <p>The setup stage can also be used to export the current grid state to the b64 string mentioned
+                    previously.</p>
+                <figure class="centered">
+                    <img src="static/captures/sudoku/sudoku_b64_popup.png"
+                         alt="Popup showing the b64 representation of the grid.">
+                    <figcaption>The base64 representation can be automatically copied to the clipboard.</figcaption>
+                </figure>
+            </section>
+
+            <section class="cell" id="solving" data-magellan-target="solving">
+                <h2>Solving</h2>
+
+                <p>Currently, I have only implemented one algorithm because it fulfilled my needs. The code already uses
+                    interfaces, so implementing new solving algorithms would be plug-and-play with the rest of the
+                    code.</p>
+                <p>The currently implemented algorithm is an organic algorithm mimicking the way I personally solve
+                    sudokus, namely by looking at missing numbers in a row, column or square. If there is only one
+                    number that would be compatible with a cell, or if a missing number can only go into 1 cell for a
+                    row, column or square, the algorithm sets the value of this cell. We can iteratively call the
+                    algorithm until the whole board has been solved, or until the algorithm gets stuck.</p>
+                <div class="grid-x grid-margin-x">
+                    <figure class="cell auto">
+                        <img src="static/captures/sudoku/sudoku_solve_unique_cell.png" alt="Sudoku grid">
+                        <figcaption>The first cell can only contain one value (5).</figcaption>
+                    </figure>
+                    <figure class="cell auto">
+                        <img src="static/captures/sudoku/sudoku_solve_only_cell.png" alt="Sudoku grid">
+                        <figcaption>The first cell can have more than one value, but it is the only cell in the first
+                            row who can have the value of 5.
+                        </figcaption>
+                    </figure>
+                </div>
+                <br>
+                <p>The application offers two options to the user, solving one cell, or solving the whole board. In both
+                    scenarios, if the algorithm detects that it is stuck and unable to finish solving the user's board,
+                    it alerts the user.</p>
+                <div class="grid-x grid-margin-x">
+                    <figure class="cell auto">
+                        <img src="static/captures/sudoku/sudoku_solve_anim.gif" alt="Solving cell by cell">
+                        <figcaption>The sudoku board can be solved one cell at a time.</figcaption>
+                    </figure>
+                    <figure class="cell auto">
+                        <img src="static/captures/sudoku/sudoku_solve_all.gif" alt="Solving all at once">
+                        <figcaption>The sudoku board can also be solved all at once.</figcaption>
+                    </figure>
+                </div>
+                <br>
+                <figure class="centered">
+                    <img src="static/captures/sudoku/sudoku_solve_blocked.gif" alt="Error message">
+                    <figcaption>If the algorithm is unable to solve the board, it alerts the user.</figcaption>
+                </figure>
+
+            </section>
+        </div>
+        <div class="large-2 large-offset-1 right" data-sticky-container>
+            <div class="sticky" data-sticky data-anchor="sections">
+                <ul class="menu vertical expanded" data-magellan data-offset="-40">
+                    <li><a href="#intro">Introduction</a></li>
+                    <li><a href="#init">Initialization</a></li>
+                    <li><a href="#setup">Setup</a></li>
+                    <li><a href="#solving">Solving</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Scripts -->
+<script src="js/vendor/jquery.js"></script>
+<script src="js/vendor/what-input.js"></script>
+<script src="js/vendor/foundation.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
