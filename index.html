@@ -21,21 +21,36 @@
         </div>
 
         <!-- Main projects -->
-        <div class="cell grid-y">
+        <div class="cell grid-y grid-margin-y">
             <div class="cell grid-x grid-margin-x">
                 <div class="cell large-offset-2 medium-offset-1 large-4">
                     <img src="static/captures/sudoku/sudoku_solve_anim.gif" alt="Solving animation">
                 </div>
                 <div class="cell large-4">
                     <h4><a href="sudoku.html">Sudoku Solver</a></h4>
-                    <ul class="menu">
+                    <div class="made-with-list">
                         <p class="made-with">Made with: </p>
-                        <li><img src="static/logos/java-logo.svg" alt="Java Logo" title="Java" width="40px"></li>
-                    </ul>
-                    <p>This simple application automatically solves a Sudoku puzzle using a bruteforce algorithm.
-                        The project was programmed using Java and uses Swing as a GUI library</p>
+                        <img src="static/logos/java-logo.svg" alt="Java Logo" title="Java" width="40px">
+                    </div>
+                    <p class="project-desc">This simple application automatically solves a Sudoku puzzle using a
+                        bruteforce algorithm. The project was programmed using Java and uses Swing as a GUI library</p>
                     <a href="sudoku.html" class="button">Learn More</a>
                     <a href="https://github.com/ppoum/SudokuSolver" class="button hollow"><i
+                            class="fa-brands fa-github"></i> Code</a>
+                </div>
+            </div>
+            <div class="cell grid-x grid-margin-x">
+                <div class="cell large-4 large-offset-6">
+                    <h4><a href="sudoku.html">Pi Spigot Algorithm</a></h4>
+                    <div class="made-with-list">
+                        <p class="made-with">Made with: </p>
+                        <img src="static/logos/asm.svg" alt="x64 assembly" title="x64 assembly" width="40px">
+                    </div>
+                    <p class="project-desc">Implementation of the algorithm outlined
+                        <a href="https://doi.org/10.2307/2975006">here</a>. Implemented using x86-64 assembly. This
+                        algorithm can be used to stream digits of pi (outputs 1 digit at a time), and can do so without
+                        needed floating point numbers (useful for older CPUs or low-end ARM processors).</p>
+                    <a href="https://github.com/ppoum/spigot-pi-asm" class="button hollow"><i
                             class="fa-brands fa-github"></i> Code</a>
                 </div>
             </div>

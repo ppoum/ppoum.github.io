@@ -9,9 +9,20 @@
     text-align: center;
 }
 
+/* Class used to list languages/libs used for project */
+.made-with-list {
+    display: flex;
+    align-items: center;
+}
+
 .made-with {
     color: gray;
     font-family: 'Inter', sans-serif;
+    margin-bottom: 0;
+}
+
+.project-desc {
+    text-align: justify;
 }
 
 /* Overwrite hollow buttons to be slightly more bold */
